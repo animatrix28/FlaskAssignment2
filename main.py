@@ -25,7 +25,7 @@ def search_stock():
 def companyTab(search_query):
     global tickerSymbol
     try:
-        req=requests.get(f'https://finnhub.io/api/v1/stock/profile2?symbol={search_query}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
+        req=requests.get(f'https://finnhub.io/api/v1/stock/profile2?symbol={search_query.upper()}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
         if req.status_code==200:
             data = req.json()
             if not data:
@@ -56,7 +56,7 @@ def stock_summary():
 
 def summaryTab(search_query):
     try:
-        req=requests.get(f'https://finnhub.io/api/v1/quote?symbol={search_query}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
+        req=requests.get(f'https://finnhub.io/api/v1/quote?symbol={search_query.upper()}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
         if req.status_code ==200:
             data           = req.json()
             tradingDay            = datetime.utcfromtimestamp(data['t']).date().strftime('%d %B, %Y')
@@ -87,7 +87,7 @@ def stock_trends():
 
 def stockTrends(search_query):
     try:
-        recommendreq=requests.get(f'https://finnhub.io/api/v1/stock/recommendation?symbol={search_query}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
+        recommendreq=requests.get(f'https://finnhub.io/api/v1/stock/recommendation?symbol={search_query.upper()}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
         if recommendreq.status_code == 200:
             rec = recommendreq.json()
             strongSell            = rec[0] ['strongSell']
@@ -146,7 +146,7 @@ def newsTab(search_query):
         current_date = datetime.now()
         date_30 = (current_date - relativedelta(months=0, days=30)).strftime('%Y-%m-%d')
         current_date= current_date.strftime('%Y-%m-%d')
-        req=requests.get(f'https://finnhub.io/api/v1/company-news?symbol={search_query}&from={date_30}&to={current_date}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
+        req=requests.get(f'https://finnhub.io/api/v1/company-news?symbol={search_query.upper()}&from={date_30}&to={current_date}&token=cn1kcm1r01qvjam261qgcn1kcm1r01qvjam261r0')
         if req.status_code==200:
             data = req.json()
             img=[]
