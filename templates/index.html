@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="icon" href="/static/images/img/icon.jpg" type="image/x-icon">
+    <title>US Stock Details</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+
+</head>
+
+<body>
+    <script type="text/javascript" src="/static/script.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <!-- <script src="https://code.highcharts.com/stock/modules/exporting.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/stock/modules/export-data.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script> -->
+    <div id="search-main">
+
+        <div id="search-bar">
+            <div id="search-txt">
+                <h1>Stock Search</h1>
+            </div>
+            <form id="inputfield" onsubmit="return false;">
+                <button id="searchbutton" style="border: 0;">
+                    <img src="/static/images/img/search-solid.svg" alt="Search Icon">
+                </button>
+
+                <input class="tickerInput" id="inputTicker" type="text" placeholder="Enter Stock Ticker Symbol"
+                    required>
+
+                <button id="clearbutton">
+                    <img src="/static/images/img/times-solid.svg" style="padding:2px;" alt="Clear Icon">
+                </button>
+            </form>
+
+        </div>
+    </div>
+    <div id="stockcontainer" style="display: none;">
+        <span id="companyTab" onclick="companyData()">Company</span>
+        <span id="stockSummaryTab" onclick="stockSummaryData()">Stock Summary</span>
+        <span id="chartsTab" onclick="chartsData()">Charts</span>
+        <span id="latestNewsTab" onclick="latestNewsData()">Latest News</span>
+    </div>
+    <div id="stocktabs_container" style="display: none;">
+
+    </div>
+</body>
+
+</html>
